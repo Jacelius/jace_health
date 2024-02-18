@@ -1,8 +1,8 @@
 // BMICalculator.tsx
 import React, { useState } from 'react';
-import { ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
+import { Button, ScrollView, StyleSheet, Text, TextInput, View } from 'react-native';
 
-export default function BMICalculator() {
+export default function BMICalculator({ navigation }) {
   const [height, setHeight] = useState(0); // centimeters
   const [weight, setWeight] = useState(0); // kilograms
   const heightInMeters = height / 100;
@@ -10,6 +10,10 @@ export default function BMICalculator() {
 
   return (
     <ScrollView style={styles.container}>
+      <Button
+        title="Go back"
+        onPress={() => navigation.goBack()}
+      />
       <View>
         <Text> Height: {height} cm</Text>
         <Text> Weight: {weight} kg</Text>
@@ -35,6 +39,7 @@ export default function BMICalculator() {
         placeholder="Weight (kg)"
         keyboardType="numeric"
       />
+
     </ScrollView>
   );
 }

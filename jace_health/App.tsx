@@ -4,6 +4,7 @@ import { Button, View } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import BMICalculator from './BMICalculator';
+import BodyFatCalculator from './BodyFatCalculator';
 
 const Stack = createStackNavigator();
 
@@ -21,6 +22,11 @@ export default function App() {
           component={BMICalculator} 
           options={{ title: 'BMI Calculator' }}
         />
+        <Stack.Screen
+          name="BodyFatCalculator"
+          component={BodyFatCalculator}
+          options={{ title: 'Body Fat Calculator' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -32,6 +38,10 @@ function HomeScreen({ navigation }) {
       <Button
         title="BMI Calculator"
         onPress={() => navigation.navigate('BMICalculator')}
+      />
+      <Button
+        title="Body Fat Calculator"
+        onPress={() => navigation.navigate('BodyFatCalculator')}
       />
     </View>
   );
